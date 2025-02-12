@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds1vsyssxusoe"]
+
+[ext_resource type="Script" path="res://ground.gd" id="1_jgge3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s67h7"]
+size = Vector2(888, 20)
+
+[node name="Ground" type="StaticBody2D"]
+script = ExtResource("1_jgge3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(444, 0)
+shape = SubResource("RectangleShape2D_s67h7")
+debug_color = Color(0.36391, 0.598188, 0.431387, 0.42)

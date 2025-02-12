@@ -1,7 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6vxcl8qep7bu"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s67h7"]
-size = Vector2(888, 20)
+[ext_resource type="PackedScene" uid="uid://ds1vsyssxusoe" path="res://ground.tscn" id="1_v1gsf"]
 
 [sub_resource type="GDScript" id="GDScript_amorp"]
 script/source = "extends CharacterBody2D
@@ -37,21 +36,9 @@ height = 60.0
 [node name="Main" type="Node2D"]
 position = Vector2(10, 637)
 
-[node name="Ground" type="Node2D" parent="."]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Ground"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground/StaticBody2D"]
-position = Vector2(434, 0)
-shape = SubResource("RectangleShape2D_s67h7")
-
-[node name="ColorRect" type="ColorRect" parent="Ground/StaticBody2D"]
-offset_left = -11.0
-offset_top = -10.0
-offset_right = 878.0
-offset_bottom = 10.0
-color = Color(0.619608, 0.427451, 0.188235, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Ground" parent="." instance=ExtResource("1_v1gsf")]
+position = Vector2(-10, -2)
+width = 800.0
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = SubResource("GDScript_amorp")
