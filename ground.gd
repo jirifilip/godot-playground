@@ -1,8 +1,9 @@
+@tool
 extends StaticBody2D
 
 @export var width: float = 400.0
 @export var height: float = 50.0
-@export var color: Color = Color.from_string("#9e6d30", Color(0, 0, 1))
+@export var color: Color = Color.SADDLE_BROWN
 
 
 func _ready() -> void:
@@ -19,6 +20,7 @@ func update_ground():
 	
 	if collision_shape:
 		var shape = RectangleShape2D.new()
+		collision_shape.position = Vector2(0, 0)
 		shape.size = Vector2(width, height)
 		collision_shape.shape = shape
 		
@@ -26,4 +28,4 @@ func update_ground():
 	
 	
 func _draw():
-	draw_rect(Rect2(position.x, position.y, width, height), color)
+	draw_rect(Rect2(-width / 2, -height / 2, width, height), color)
