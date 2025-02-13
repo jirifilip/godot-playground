@@ -1,8 +1,16 @@
 @tool
 extends StaticBody2D
 
-@export var width: float = 400.0
-@export var height: float = 50.0
+@export var width: float = 400.0 :
+	set(value):
+		width = max(value, 10)
+		update_ground()
+
+@export var height: float = 50.0 :
+	set(value):
+		height = max(value, 10)
+		update_ground()
+		
 @export var color: Color = Color.SADDLE_BROWN
 
 
@@ -12,7 +20,7 @@ func _ready() -> void:
 
 func _process(delta):
 	if Engine.is_editor_hint():
-		update_ground()
+		queue_redraw()
 
 
 func update_ground():
